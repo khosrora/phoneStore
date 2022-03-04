@@ -11,13 +11,112 @@
 
 </head>
 
-<body class="bg-gray-100" >
+<body class="bg-gray-100">
 
     <!-- App bar -->
-    <div class="flex items-center justify-between">
-        <div class=""></div>
+    <div class="flex md:hidden items-center justify-between mt-9 px-4 mb-6">
+        <div class="font-serif">
+            digitize
+        </div>
+        <div class="text-lg font-bold text-slate-800">
+            ساعت هوشمند
+        </div>
+        <div class="bg-white shadow-lg flex items-center justify-center rounded p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-orange-400" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        </div>
+    </div>
+    <!-- App bar -->
+    <!-- Filter - sort mobile section-->
+    <div class="flex md:hidden items-center justify-around gap-x-4 px-4 mb-10">
+        <div class="bg-white rounded p-2 flex items-center justify-start w-full">
+            <div class="">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-orange-600" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
+                </svg>
+            </div>
+            <span class="text-sm text-slate-800 mr-4">محبوب ترین </span>
+        </div>
+        <div class="bg-white rounded p-2 flex items-center justify-start w-full">
+            <div class="">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-gray-500" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                </svg>
+            </div>
+            <span class="text-sm text-slate-800 mr-4">فیلتر : اپل</span>
+        </div>
+    </div>
+    <!-- Filter - sort mobile section-->
+    <div class="grid grid-cols-12 md:grid-rows-[55px_minmax(500px,_1fr)] md:gap-8">
+        <!-- sidebar -->
+        <div class="bg-white hidden md:block col-span-3 row-span-2">sidebar</div>
+        <!-- sort section -->
+        <div class="bg-white hidden md:block col-span-9">sort section</div>
+        <!-- products section -->
+        <div class="md:bg-white  col-span-12 md:col-span-9 lg:col-span-9 ">
+            <!-- product section -->
+            <div x-data="{ products: [
+        { id: 1, title : 'ساعت هوشمند اپل سری 7' , price : '10,100,000'   },
+        { id: 2, title : 'ساعت هوشمند اپل سری 8' , price : '11,450,000'   },
+        { id: 3, title : 'ساعت هوشمند اپل سری 9' , price : '12,500,000'   },
+        { id: 4, title : 'ساعت هوشمند اپل سری 2' , price : '12,500,000'   },
+        { id: 5, title : 'ساعت هوشمند اپل سری 9' , price : '12,500,000'   },
+    ]}" class="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-4 md:p-0">
+                <template x-for="product in products">
+                    <div class="bg-white-100 rounded-xl p-2 shadow-lg">
+                        <!-- product - image -->
+                        <div class="mb-4 bg-gray-300 rounded-xl p-2">
+                            <img class="" src="./assets/images/Cart/2.png" alt="">
+                        </div>
+                        <!-- product - desc -->
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <span class="text-slate-500 text-sm">اپل</span>
+                            <span x-data="{ color : 'red' }" class="flex items-center">
+                                <div @click="color='red'" :class="color === 'red' ? 'ring-1 ring-red-400' : ' ' "
+                                    class="w-4 h-4 rounded-full cursor-pointer bg-red-400 -mr-1 border-2 md:w-7 md:h-7  text-white flex justify-center items-center">
+                                    <svg x-show="color === 'red'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <div @click="color='blue'" :class="color === 'blue' ? 'ring-1 ring-blue-400' : ' ' "
+                                    class="w-4 h-4 rounded-full cursor-pointer bg-blue-400  -mr-1 border-2 md:w-7 md:h-7  text-white flex justify-center items-center">
+                                    <svg x-show="color === 'blue'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <div @click="color='green'" :class="color === 'green' ? 'ring-1 ring-green-400' : ' ' "
+                                    class="w-4 h-4 rounded-full cursor-pointer bg-green-400 -mr-1 border-2 md:w-7 md:h-7  text-white flex justify-center items-center">
+                                    <svg x-show="color === 'green'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                            </span>
+                        </div>
+                        <!-- product - title -->
+                        <div x-text="product.title" class="text-slate-800 text-xs mb-1 md:text-base"></div>
+                        <div x-text="product.price" class="text-orange-600 mb-3 font-medium text-center text-sm"></div>
+                        <hr class="text-orange-600">
+                        <button class="w-full font-bold text-orange-600 py-1">مشاهده و سفارش</button>
+                    </div>
+                </template>
+            </div>
+            <!-- product section -->
+        </div>
     </div>
 
+
+
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 
 </html>
